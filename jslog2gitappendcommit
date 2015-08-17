@@ -131,9 +131,9 @@ sub git_do_commit {
 		$ENV{'GIT_AUTHOR_DATE'} = gmtime($commitobj->{unixtime}) . " +0000";
 		$ENV{'GIT_COMMITTER_DATE'} = gmtime($commitobj->{unixtime}) . " +0000";
 		$ENV{'GIT_AUTHOR_NAME'} = $commitobj->{author};
-		$ENV{'GIT_AUTHOR_EMAIL'} = sprintf('%s@netbsd.org', $commitobj->{author});
+		$ENV{'GIT_AUTHOR_EMAIL'} = sprintf('%s', $commitobj->{author});
 		$ENV{'GIT_COMMITTER_NAME'} = $commitobj->{author};
-		$ENV{'GIT_COMMITTER_EMAIL'} = sprintf('%s@netbsd.org', $commitobj->{author});
+		$ENV{'GIT_COMMITTER_EMAIL'} = sprintf('%s', $commitobj->{author});
 
 		git_commit($commitobj->{log});
 	}

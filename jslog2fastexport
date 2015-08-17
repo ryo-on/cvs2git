@@ -176,7 +176,7 @@ BEGIN {
 		my $mark = $N++;
 
 		$obj->{mark} = $mark;
-		my $author = sprintf('%s <%s@netbsd.org>', $obj->{author}, $obj->{author});
+		my $author = sprintf('%s <%s>', $obj->{author}, $obj->{author});
 
 		if ($DEBUG_COMMIT) {
 			printf STDERR "===== %s: commit (%s) mark %d, %d files by %s =====\n",

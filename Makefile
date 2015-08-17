@@ -1,13 +1,13 @@
 
-CVS_REPOSITORY_DIR=/home/cvs/cvs2git/cvsroot-netbsd
-CVS_MODULE=src
+CVS_REPOSITORY_DIR=/usr/cvs/ecos
+CVS_MODULE=ecos
 
-CVS=/usr/local/bin/cvs
+CVS=/usr/bin/cvs
 WORKDIR1=work.import
 WORKDIR2=work.increment
 GITDIR=gitwork
 CVSTMPDIR=cvstmp
-TMPDIR=/var/tmp
+TMPDIR=/usr/tmp
 
 RSYNC_PROXY=your.proxyserver.local:8080
 
@@ -118,11 +118,11 @@ pullup_from_cvs_to_git:
 	false
 
 get-cvsrepository:
-	@if [ ! -d ${CVS_REPOSITORY_DIR} ] ; then	\
-		mkdir ${CVS_REPOSITORY_DIR};		\
-	fi
-	env RSYNC_PROXY=${RSYNC_PROXY} ./rsync_completely.sh rsync://anoncvs.NetBSD.org/cvsroot/CVSROOT ${CVS_REPOSITORY_DIR}
-	env RSYNC_PROXY=${RSYNC_PROXY} ./rsync_completely.sh rsync://anoncvs.NetBSD.org/cvsroot/src     ${CVS_REPOSITORY_DIR}
+#	@if [ ! -d ${CVS_REPOSITORY_DIR} ] ; then	\
+#		mkdir ${CVS_REPOSITORY_DIR};		\
+#	fi
+#	env RSYNC_PROXY=${RSYNC_PROXY} ./rsync_completely.sh rsync://anoncvs.NetBSD.org/cvsroot/CVSROOT ${CVS_REPOSITORY_DIR}
+#	env RSYNC_PROXY=${RSYNC_PROXY} ./rsync_completely.sh rsync://anoncvs.NetBSD.org/cvsroot/src     ${CVS_REPOSITORY_DIR}
 
 cvscheckout:
 	${CVS} -q -d ${CVS_REPOSITORY_DIR} co -d${CVSTMPDIR} ${CVS_MODULE}
